@@ -4,22 +4,40 @@
 <title>Web1-Welcome</title>
 <meta charset="utf-8">
 <link rel="stylesheet" href="style.css"> 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jqeury.min.js"></script>
+<script src="colors.js"></script>
 </head>
 
 <body>
     <h1><a href="index.html" >WEB</a></h1>
-    <div id="grid"> 
+
+    <input type="button" value="night" onclick="
+        nightDayHandler(this);
+    ">
+
+
 <ol>
-    <li><a href="1.html" class="saw">HTML</a></li>
-    <li><a href="2.html" class="saw">CSS</a></li>
-    <li><a href="3.html">JavaScript</a></li>
+    <li><a onclick="fetchPage('html')">HTML<a/></li>
+    <li><a onclick="fetchPage('css')">CSS<a/></li>
+    <li><a onclick="fetchPage('javascript')">JAVASCRIPT<a/></li> 
 </ol>
-<div id="article">
-<h2>internet</h2>
-<p>The Internet (or internet)[a] is the global system of interconnected computer networks that uses the Internet protocol suite (TCP/IP)[b] to communicate between networks and devices. It is a network of networks that consists of private, public, academic, business, and government networks of local to global scope, linked by a broad array of electronic, wireless, and optical networking technologies. The Internet carries a vast range of information resources and services, such as the inter-linked hypertext documents and applications of the World Wide Web (WWW), electronic mail, telephony, and file sharing.
 
-   
-</p>
+<article style="color:black">
+<h2>WEB이란 무엇인가?</h2>
+<p><a href="https://www.w3.org/TR/2011/WD-html5-20110405/" target="_blank" title="html5 speicification">Hypertext markup language (HTML)</a> is the standard markup language for 
+<strong>creating <u>web</u> pages</strong> and web applications.</p>
+<img src="coding.jpg" width="100%">
+</article>
+
+<script>
+    function fetchPage(name){
+        fetch(name).then(function(response){
+            response.text().then(function(text){
+                document.querySelector('article').innerHTML = text;
+            })
+        });      
+    }
+</script>
+
 </body>
-
 </html>
